@@ -52,3 +52,39 @@ This format is used while using the [class.js](https://github.com/moorinteractiv
     
 })( window );
 </pre>
+
+## Accessing subclasses
+
+If you have overridden a public method, you can still access the method in it's subclass. This can be done by calling the *this._super* method.
+
+### Subclass
+
+<pre>
+( function() {
+    
+    function MySubclass( value ) {};
+    
+    MySubclass.prototype.say = function( value ) {
+        console.log( value );
+    };
+    
+    window.MySubclass = Class.extend( MySubclass );
+    
+})( window );
+</pre>
+
+### Extended class
+
+<pre>
+( function() {
+    
+    function MyExtendedClass( value ) {};
+    
+    MyExtendedClass.prototype.say = function( value ) {
+        this._super( "I'm saying " + value );
+    };
+    
+    window.MyExtendedClass = MySubclass.extend( MyExtendedClass );
+    
+})( window );
+</pre>
