@@ -1,0 +1,3 @@
+# JS Class inheritance
+
+* Prototype
