@@ -62,7 +62,7 @@ If you have overridden a public method, you can still access the method in it's 
 <pre>
 ( function() {
     
-    function MySubclass( value ) {};
+    function MySubclass() {};
     
     MySubclass.prototype.say = function( value ) {
         console.log( value );
@@ -78,7 +78,7 @@ If you have overridden a public method, you can still access the method in it's 
 <pre>
 ( function() {
     
-    function MyExtendedClass( value ) {};
+    function MyExtendedClass() {};
     
     MyExtendedClass.prototype.say = function( value ) {
         this._super( "I'm saying " + value );
