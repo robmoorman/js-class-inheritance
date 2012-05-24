@@ -10,6 +10,7 @@ See the code example below how to define a Javascript Class with private, public
 This format is used while using the [class.js](https://github.com/moorinteractive/js-class-inheritance/blob/master/bin/class.js) to make classic Class inheritance possible for your Javascript projects.
 
 <pre>
+// self executing function, so this Class has it's own scope
 ( function() {
     
     // public member
@@ -46,6 +47,7 @@ This format is used while using the [class.js](https://github.com/moorinteractiv
         console.log( context.publicMethod );
     };
     
+    // expose this Class for public usage
     window.MyClass = Class.extend( MyClass );
     
 })( window );
