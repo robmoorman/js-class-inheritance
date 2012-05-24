@@ -6,7 +6,7 @@
 
 ## Best practice of defining a Class
 
-See the code example below how to define a Javascript Class with private, public and static members (according this [video](http://http://gotoandlearn.com/play.php?id=159)).
+See the code example below how to define a Javascript Class with private, public and static members (according this [video](http://gotoandlearn.com/play.php?id=159)).
 This format is used while using the [class.js](https://github.com/moorinteractive/js-class-inheritance/blob/master/bin/class.js) to make classic Class inheritance possible for your Javascript projects.
 
 <pre>
