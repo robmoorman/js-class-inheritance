@@ -1,0 +1,46 @@
+<project name="build" basedir="." default="default">
+	
+	<taskdef name="jscomp" classname="com.google.javascript.jscomp.ant.CompileTask" classpath="./build/compiler.jar" />
+	
+	<target name="default">
+		<antcall target="prepare" />
+		<antcall target="coverage" />
+		<antcall target="run" />
+		<antcall target="compress" />
+	</target>
+	
+	<target name="prepare">
+		<exec executable="/Users/rmoorman/Developer/phantomjs" failonerror="true">
+			<arg line="./coverage/coverage.js" />
+			<arg line="prepare" />
+			<arg line="--config ./coverage/config.js" />
+		</exec>
+	</target>
+	
+	<target name="coverage">
+		<exec executable="/Users/rmoorman/Developer/jscoverage" failonerror="true">
+			<arg line="./coverage/build-tmp/src" />
+			<arg line="./coverage/build-tmp/bin" />
+		</exec>
+	</target>
+	
+	<target name="run">
+		<exec executable="/Users/rmoorman/Developer/phantomjs" failonerror="true">
+			<arg line="./coverage/coverage.js" />
+			<arg line="run" />
+			<arg line="--config ./coverage/config.js" />
+		</exec>
+	</target>
+	
+	<target name="compress">
+		<delete>
+			<fileset dir="./bin" includes="class.min.js" />
+		</delete>
+		<jscomp compilationLevel="simple" warning="quiet" debug="false" output="./bin/class.min.js">
+			<sources dir="./src">
+				<file name="class.js" />
+			</sources>
+		</jscomp>
+	</target>
+	
+</project>

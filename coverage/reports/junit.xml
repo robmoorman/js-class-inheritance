@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuite tests='7' failures='0' disabled='0' errors='0' time='0.004' name='tests'>
+	<testsuite tests='7' failures='0' disabled='0' errors='0' time='0.004' name='Class'>
+		<testcase name='privateMembersAreNotCopied' status='pass' time='0' classname='Class'>
+			<skipped />
+		</testcase>
+		<testcase name='privateMethodsAreNotCopied' status='pass' time='0' classname='Class'>
+			<skipped />
+		</testcase>
+		<testcase name='propertiesAreNotOverriddenAtMultipleInstantiation' status='pass' time='0' classname='Class'>
+			<skipped />
+		</testcase>
+		<testcase name='publicMembersAreCopied' status='pass' time='0' classname='Class'>
+			<skipped />
+		</testcase>
+		<testcase name='publicMethodsAreCopied' status='pass' time='0.001' classname='Class'>
+			<skipped />
+		</testcase>
+		<testcase name='staticMembersAreNotCopied' status='pass' time='0.001' classname='Class'>
+			<skipped />
+		</testcase>
+		<testcase name='subClassIsInstanceOfBaseClass' status='pass' time='0.002' classname='Class'>
+			<skipped />
+		</testcase>
+	</testsuite>
+</testsuite>
