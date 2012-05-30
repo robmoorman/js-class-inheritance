@@ -13,9 +13,6 @@ This format is used while using the [class.js](https://github.com/moorinteractiv
 // self executing function, so this Class has it's own scope
 ( function() {
     
-    // public member
-    MyClass.prototype.publicMember = "value";
-    
     // public static member
     MyClass.STATIC_MEMBER = "value";
     
@@ -37,6 +34,12 @@ This format is used while using the [class.js](https://github.com/moorinteractiv
         };
     };
     
+    // expose this Class for public usage
+    window.MyClass = Class.extend( MyClass );
+    
+    // public member
+    MyClass.prototype.publicMember = "value";
+    
     // public method
     MyClass.prototype.publicMethod = function() {
         privateMethod( this );
@@ -47,15 +50,16 @@ This format is used while using the [class.js](https://github.com/moorinteractiv
         console.log( context.publicMethod );
     };
     
-    // expose this Class for public usage
-    window.MyClass = Class.extend( MyClass );
-    
 })( window );
 </pre>
 
+## Note: order of class members and methods
+
+Make sure you define your prototype members and methods *after* you called *Class.extend*!
+
 ## Accessing subclasses
 
-If you have overridden a public method, you can still access the method in it's subclass. This can be done by calling the *this._super* method.
+If you have overridden a public method, you can still access the method in it's subclass. This can be done by calling the *this.parent* method.
 
 ### Subclass
 
@@ -64,11 +68,11 @@ If you have overridden a public method, you can still access the method in it's 
     
     function MySubclass() {};
     
+    window.MySubclass = Class.extend( MySubclass );
+    
     MySubclass.prototype.say = function( value ) {
         console.log( value );
     };
-    
-    window.MySubclass = Class.extend( MySubclass );
     
 })( window );
 </pre>
@@ -80,11 +84,11 @@ If you have overridden a public method, you can still access the method in it's 
     
     function MyExtendedClass() {};
     
-    MyExtendedClass.prototype.say = function( value ) {
-        this._super( "I'm saying " + value );
-    };
-    
     window.MyExtendedClass = MySubclass.extend( MyExtendedClass );
+    
+    MyExtendedClass.prototype.say = function( value ) {
+        this.parent( "I'm saying " + value );
+    };
     
 })( window );
 </pre>
